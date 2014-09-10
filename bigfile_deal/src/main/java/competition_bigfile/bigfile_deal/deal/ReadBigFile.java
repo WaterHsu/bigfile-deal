@@ -23,7 +23,7 @@ public class ReadBigFile {
 	}
 	
 	public synchronized void dealContent() throws Exception{
-		String preLast = bigFile.getQueue().element().split("\r\n")[bigFile.getQueue().element().split("\r\n").length - 1];
+		//String preLast = bigFile.getQueue().element().split("\r\n")[bigFile.getQueue().element().split("\r\n").length - 1];
 		String str;
 		int i = 0;
 		while((str = bigFile.getQueue().poll()) != null){
@@ -42,7 +42,7 @@ public class ReadBigFile {
 	}
 	
 	public synchronized void nioReadFile() throws Exception{
-		MappedByteBuffer inputBuffer = new RandomAccessFile(file, "r").getChannel().map(FileChannel.MapMode.READ_ONLY, 0, file.length());
+		MappedByteBuffer inputBuffer = new RandomAccessFile(file, "r").getChannel().map(FileChannel.MapMode.READ_ONLY, file.length() * 9 / 10, file.length() / 10);
 		byte[] dst = new byte[buffer_size];
 		long start = System.currentTimeMillis();
 		
@@ -67,7 +67,7 @@ public class ReadBigFile {
 		}
 		
 		long end = System.currentTimeMillis();
-		System.out.println(inputBuffer.capacity() + "   " + inputBuffer.capacity() % buffer_size);
+		System.out.println("ggg: " + inputBuffer.capacity() + "   " + inputBuffer.capacity() % buffer_size);
 	/*	String str;
 		int i = 0;
 		while((str = bigFile.getQueue().poll()) != null){

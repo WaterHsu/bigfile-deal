@@ -1,11 +1,9 @@
-package competition_bigfile.bigfile_deal.io;
 
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 
 
@@ -65,11 +63,11 @@ public class LineDealer implements Runnable{
 		}
 		
 		List<Map<String, Integer>> list = rank(map);
-		FileWriter fw = new FileWriter("E:\\out.txt");
+		FileWriter fw = new FileWriter("out.txt");
 		
 		for(Map<String, Integer> m : list){
 			for(String key : m.keySet()){
-				fw.append(key + "  =====》    " + m.get(key).toString() + "\r\n");
+				fw.append(key + " ===== " + m.get(key).toString() + "\r\n");
 			}
 		}
 		

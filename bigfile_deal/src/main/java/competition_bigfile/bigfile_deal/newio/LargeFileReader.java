@@ -1,4 +1,3 @@
-package competition_bigfile.bigfile_deal.io;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -52,9 +51,12 @@ public class LargeFileReader implements Runnable {
 	
 	public static void main(String args[]){
 		BlockingQueue<String> sharedQueue = new LinkedBlockingQueue<String>();
+		if(args.length > 0){
+			System.out.println(args[0]);
+		}
 	//	System.out.println(args[1]);
 		TTTT t = new TTTT();
-		new Thread(new LargeFileReader(sharedQueue, t, "E:\\access.29.log")).start();
+		new Thread(new LargeFileReader(sharedQueue, t, args.length == 0 ? "E://access.29.log" : args[0])).start();
 		new Thread(new LineDealer(sharedQueue, t)).start();
 	}
 }

@@ -1,5 +1,3 @@
-package competition_bigfile.bigfile_deal.io;
-
 
 public class TTTT {
 	

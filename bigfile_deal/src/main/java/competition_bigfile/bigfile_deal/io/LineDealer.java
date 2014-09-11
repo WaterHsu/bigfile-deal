@@ -8,8 +8,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 
-import competition_bigfile.bigfile_deal.blockqueue.TTTT;
-
 
 /**
  * @author WaterHsu@xiu8.com
@@ -40,12 +38,22 @@ public class LineDealer implements Runnable{
 		while(t.i == 0 || !sharedQueue.isEmpty()){
 			String line = sharedQueue.take();
 			
-			if(!line.contains("http://")){
+			if(!line.contains(".com")){
 				continue;
 			}
 			
-			String url = line.substring(line.indexOf("http://"), line.length());
-			url = url.substring(0, url.indexOf("\""));
+			String temp1 = line.substring(line.indexOf("-") + 1, line.indexOf("[") - 1); 
+			String temp2 = line.substring(line.indexOf("\""), line.indexOf("HTTP"));
+			
+			if(temp2.contains("/")){
+				temp2 = temp2.substring(temp2.indexOf("/"));
+			}
+			
+			
+			String url = temp1 + temp2;
+			if(url.contains("/do_not_delete/noc.gif") || url.contains("/70/70") || url.contains("/50/50")){
+				continue;
+			}
 		
 			if(url.contains("?")){
 				url = url.substring(0, url.indexOf("?"));

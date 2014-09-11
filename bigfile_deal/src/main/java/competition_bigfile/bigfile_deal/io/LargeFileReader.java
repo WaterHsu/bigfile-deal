@@ -8,8 +8,6 @@ import java.io.InputStreamReader;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import competition_bigfile.bigfile_deal.blockqueue.TTTT;
-
 /**
  * @author WaterHsu@xiu8.com
  * @version 2014年9月10日

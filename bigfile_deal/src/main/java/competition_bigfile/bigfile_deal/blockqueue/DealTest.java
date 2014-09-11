@@ -3,6 +3,8 @@ package competition_bigfile.bigfile_deal.blockqueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
+import competition_bigfile.bigfile_deal.io.TTTT;
+
 /**
  * @author WaterHsu@xiu8.com
  * @version 2014年9月10日

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.concurrent.BlockingQueue;
 
+import competition_bigfile.bigfile_deal.io.TTTT;
+
 /**
  * @author WaterHsu@xiu8.com
  * @version 2014年9月10日
